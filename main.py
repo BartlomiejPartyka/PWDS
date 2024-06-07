@@ -1,9 +1,9 @@
 from gui import MainGUI
-from pwds_serializer import Serializer
+from pwds_serializer import PWDS_Serializer
 
 
 def main():
-    test = Serializer()
+    PWDS_Serializer()
     #test.mainloop()
 
 
