@@ -20,7 +20,7 @@ class PWDS_GUI:
         title_label = ctk.CTkLabel(master=frame_top, text="Sanwa PC5000a", font=("Helvetica", 25), fg_color="white")
         title_label.grid(row=0, column=0, pady=20)
         start_button = ctk.CTkButton(master=frame_options, text="Start", fg_color="#E7E7E7", corner_radius=10, text_color="black",
-                                     cursor="hand2", hover_color="#CACACA", command = self.serializer.send_frame)
+                                     cursor="hand2", hover_color="#CACACA", command=self.serializer.send_frame)
         start_button.grid(row=0, column=0, padx = 10)
         file_button = ctk.CTkButton(master=frame_options, text="Zapis do pliku", fg_color="#E7E7E7", corner_radius=10,
                                      text_color="black",
