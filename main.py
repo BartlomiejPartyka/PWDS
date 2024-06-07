@@ -5,6 +5,8 @@ from pwds_gui import PWDS_GUI
 
 def main():
     gui = PWDS_GUI()
+    serializer = PWDS_Serializer(gui)
+    gui.set_serializer(serializer)
     gui.display()
     #test.mainloop()
 

@@ -5,7 +5,7 @@ import datetime
 
 
 class PWDS_Serializer:
-    def __init__(self):
+    def __init__(self, gui):
         self.port = '\\\\.\\COM6'
         self.baudrate = 9600
         self.bytesize = serial.EIGHTBITS
@@ -13,6 +13,8 @@ class PWDS_Serializer:
 
         self.thread = None
         self.stop_thread = False
+
+        self.gui = gui
 
     def send_frame(self):
         ser = serial.Serial(self.port, self.baudrate, bytesize=self.bytesize, stopbits=self.stopbits, timeout=1)
@@ -26,7 +28,7 @@ class PWDS_Serializer:
 
             if len(response) > 8:
                 ascii_start = 8
-                ascii_end = len(response) - 2
+                ascii_end = len(response) - 3
                 ascii_bytes = response[ascii_start:ascii_end]
                 ascii_representation = ascii_bytes.decode('ascii')
 
@@ -34,7 +36,8 @@ class PWDS_Serializer:
                 current_time = current_time.strftime('%d/%m/%Y %H:%M:%S')
                 print("Data:", str(current_time) + ascii_representation)
 
-            time.sleep(1)
+            interval = self.gui.get_combobox_value()
+            time.sleep(interval)
 
         ser.close()
 
