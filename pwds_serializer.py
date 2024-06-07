@@ -1,6 +1,7 @@
 import serial
 import time
 import threading
+import datetime
 
 
 class PWDS_Serializer:
@@ -28,7 +29,10 @@ class PWDS_Serializer:
                 ascii_end = len(response) - 2
                 ascii_bytes = response[ascii_start:ascii_end]
                 ascii_representation = ascii_bytes.decode('ascii')
-                print("Received:", ascii_representation)
+
+                current_time = datetime.datetime.now()
+                current_time = current_time.strftime('%d/%m/%Y %H:%M:%S')
+                print("Data:", str(current_time) + ascii_representation)
 
             time.sleep(1)
 
