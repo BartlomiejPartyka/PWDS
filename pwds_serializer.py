@@ -9,7 +9,7 @@ class PWDS_Serializer:
         self.bytesize = serial.EIGHTBITS
         self.stopbits = serial.STOPBITS_ONE
 
-        self.send_frame()
+        #self.send_frame()
 
     def send_frame(self):
         ser = serial.Serial(self.port, self.baudrate, bytesize=self.bytesize, stopbits=self.stopbits, timeout=1)
